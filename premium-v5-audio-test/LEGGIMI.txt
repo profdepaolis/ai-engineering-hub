@@ -1,0 +1,14 @@
+VIDEOCODEX PREMIUM V5 — VERIFICA AUDIO SINTETICA
+
+Questo controllo usa copie degli script originali salento_tools.py e premium_tools.py, senza modificarli. Genera una falsa voce di prova e un click sintetico in una cartella temporanea, verifica che un evento sonoro cada sullo stesso campione del cue video, crea stem di test, confronta la traccia voce e verifica il blocco dei diritti mancanti e della sovrascrittura. La cartella temporanea viene eliminata a fine prova.
+
+Nessun file audio reale, catalogo audio originale o bozza KORA viene aperto o modificato. La prova non verifica la licenza dei file reali, la resa percettiva, il rendering video, o la pipeline V5 completa; non usa la musica KORA.
+
+REQUISITI: Python 3.9 o superiore, numpy e ffmpeg con filtro loudnorm. Usa il Terminale e l'ambiente virtuale (.venv) già utilizzato per KORA.
+
+1. Estrai lo ZIP e colloca premium-v5-audio-test in Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO.
+2. Nel Terminale incolla e premi Invio:
+
+python3 "$HOME/Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO/premium-v5-audio-test/verifica_audio.py"
+
+3. Attendi VERIFICA AUDIO SINTETICA COMPLETATA e condividi l'esito. Se appare un errore, condividi il messaggio per ricevere assistenza.

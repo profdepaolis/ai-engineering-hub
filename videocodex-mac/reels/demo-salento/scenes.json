@@ -1,0 +1,61 @@
+{
+  "reel": "demo-salento",
+  "theme": "Salento: mare e luoghi da scoprire",
+  "style": "warm cinematic, golden hour, vertical 9:16, photorealistic, no text, no watermark",
+  "scenes": [
+    {
+      "id": "hook",
+      "component": "TypingTitle",
+      "startFrame": 0,
+      "endFrame": 150,
+      "text": "Guarda il mare del Salento",
+      "clipPrompt": "aerial drone shot over turquoise Adriatic sea cliffs in Salento Italy at golden hour, waves crashing, cinematic vertical video, no people close-up, no text",
+      "notes": "Hook: titolo in typing sulla parola chiave 'mare'"
+    },
+    {
+      "id": "photos",
+      "component": "PhotoShutter",
+      "startFrame": 150,
+      "endFrame": 300,
+      "photos": ["clips/foto1.jpg", "clips/foto2.jpg", "clips/foto3.jpg"],
+      "clipPrompt": "three still photos: whitewashed Salento village street, baroque church facade in Lecce, rustic Italian aperitivo table with wine and olives, warm sunlight, photorealistic",
+      "notes": "Foto che volano dentro con shutter su ogni atterraggio"
+    },
+    {
+      "id": "impact",
+      "component": "ImpactTitle",
+      "startFrame": 300,
+      "endFrame": 450,
+      "text": "SALENTO!",
+      "clipPrompt": "dramatic slow motion ocean wave crashing against rocks at sunset, Salento coast, cinematic, vertical",
+      "notes": "Impatto monumentale con bass hit"
+    },
+    {
+      "id": "globe",
+      "component": "GlobeLite",
+      "startFrame": 450,
+      "endFrame": 600,
+      "destinations": ["Lecce", "Otranto", "Gallipoli"],
+      "clipPrompt": "stylized 3D globe rotating with glowing routes over the Mediterranean, dark blue background, cinematic",
+      "notes": "Rotte luminose tra le destinazioni"
+    },
+    {
+      "id": "search",
+      "component": "SearchBar",
+      "startFrame": 600,
+      "endFrame": 750,
+      "query": "Grotta della Poesia",
+      "clipPrompt": "hidden sea cave with crystal clear turquoise water and sunlight beams, Salento Italy, photorealistic vertical video",
+      "notes": "Ricerca animata con risultato dimostrativo"
+    },
+    {
+      "id": "cta",
+      "component": "ImpactTitle",
+      "startFrame": 750,
+      "endFrame": 900,
+      "text": "Pronto a partire?",
+      "clipPrompt": "sunset over Salento coastline with sailboat, warm golden light, cinematic vertical video, no text",
+      "notes": "CTA finale, accento sonoro discreto"
+    }
+  ]
+}

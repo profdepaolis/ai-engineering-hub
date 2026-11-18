@@ -1,0 +1,3 @@
+KORA - bozza motion
+Terza bozza: foto con camera virtuale più evidente, transizioni, titolo digitato e parole chiave con evidenziazione animata. Logo all'inizio e alla fine. La traccia AAC della bozza con effetti viene copiata senza ricodifica; nessuna musica.
+Il programma legge il progetto già preparato, le foto della cartella FOTO REEL e la bozza con effetti. Non sovrascrive le due bozze precedenti. Serve la stessa installazione Python, Pillow, FFmpeg e Remotion già usata. Il rendering completo può richiedere molto tempo. Rivedere immagini, testo, sincronizzazione, effetti e livelli prima della pubblicazione. Lo stile è una ricostruzione ispirata al V5, non l'originale.

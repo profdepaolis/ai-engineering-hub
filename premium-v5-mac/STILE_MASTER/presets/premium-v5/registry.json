@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "version": "5.0",
+  "modes": [
+    "AUTOMATICA",
+    "GUIDATA",
+    "REGIA COMPLETA"
+  ],
+  "defaultMode": "AUTOMATICA",
+  "api": "STILE_MASTER/presets/premium-v5/index.ts",
+  "exports": [
+    "TypingCamera",
+    "AnimatedUnderline",
+    "PhotoMotionShutter",
+    "CinematicReveal",
+    "CinematicImpact",
+    "DirectionalHandoff",
+    "BakedJacket3D",
+    "CinematicGlobe",
+    "AnimatedSearch",
+    "SoundDesignTrack"
+  ],
+  "additionalComponents": [
+    "TypingCamera",
+    "AnimatedUnderline",
+    "PhotoMotionShutter",
+    "CinematicReveal",
+    "CinematicImpact",
+    "BakedJacket3D",
+    "CinematicGlobe",
+    "AnimatedSearch"
+  ],
+  "dependencies": [
+    "remotion",
+    "react",
+    "react-dom",
+    "three",
+    "typescript",
+    "@remotion/captions",
+    "@remotion/cli"
+  ],
+  "reference": {
+    "mp4": "reel_26_settembre/REEL_26_OTTOBRE_NON_E_SETTEMBRE_V2.mp4",
+    "source": "GONDAR_FINAL/src/reel26-v2.tsx",
+    "stage": "GONDAR_FINAL/src/reel26-v2-stage.tsx",
+    "qa": "reel_26_settembre/production/remotion26-v2/FINAL_QA.json",
+    "director": "GONDAR_FINAL/public/reel26v2/cues.json",
+    "timing": "GONDAR_FINAL/public/reel26v2/timing.json",
+    "role": "Verified technical origin; never clone its storyline, fixed timings, words or geographic route origins."
+  },
+  "assets": [
+    {
+      "id": "local-fonts",
+      "kind": "fonts",
+      "files": [
+        "GONDAR_FINAL/public/impact.ttf",
+        "GONDAR_FINAL/public/arialbd.ttf"
+      ],
+      "rights": "Existing local font files; do not download SF Pro without an appropriate license."
+    },
+    {
+      "id": "geographic-earth",
+      "kind": "PBR globe texture pack",
+      "files": [
+        "GONDAR_FINAL/public/reel26v2/earth-midnight.jpg",
+        "GONDAR_FINAL/public/reel26v2/earth-rough.png",
+        "GONDAR_FINAL/public/reel26v2/earth-relief.png",
+        "reel_26_settembre/production/remotion26-v2/SOURCES.json"
+      ],
+      "publicTextures": {
+        "color": "reel26v2/earth-midnight.jpg",
+        "roughness": "reel26v2/earth-rough.png",
+        "relief": "reel26v2/earth-relief.png"
+      },
+      "provenance": "NASA Earth Observatory Blue Marble, October composite; credit/source guidelines in SOURCES.json. Reuse of code does not clear unrelated imagery."
+    },
+    {
+      "id": "puffer-supplied-real-mesh",
+      "kind": "true 3D Cycles turntable, not a rotated still",
+      "files": [
+        "reel_26_settembre/production/remotion26-v2/PUFFER_V2_STUDIO.blend",
+        "reel_26_settembre/giubotto/PufferJacketMockup.blend",
+        "reel_26_settembre/giubotto/AnimationCache.abc",
+        "reel_26_settembre/giubotto/Cotton_Twill_NRM.jpg"
+      ],
+      "sequence": {
+        "folder": "GONDAR_FINAL/public/reel26v2/jacket",
+        "pattern": "{frame:03}.png",
+        "first": 316,
+        "last": 400
+      },
+      "asset": {
+        "folder": "reel26v2/jacket",
+        "pattern": "{frame:3}.png",
+        "turnFrom": 333,
+        "turnTo": 390,
+        "fps": 30,
+        "rotationDegrees": 360,
+        "provenance": "User-supplied BrockCreative garment, rights evidence in V2 SOURCES.json"
+      },
+      "width": 1080,
+      "height": 1200,
+      "hood": false,
+      "rights": "User-provided asset and declaration; preserve source attribution/rights evidence, never extrapolate to new garments. No hood or rear-detail reconstruction claimed.",
+      "retiming": "Changed duration requires rebaking native motion blur; checkTurntableRetime reports this."
+    },
+    {
+      "id": "audio-library",
+      "kind": "authorized local SFX catalog",
+      "files": [
+        "AUDIO_LIBRARY/audio_catalog.json"
+      ],
+      "rule": "Rescan every production with salento_tools.py scan-audio; compiler rechecks source hashes and rights. No embedded music."
+    },
+    {
+      "id": "reference-media-only",
+      "kind": "read-only reference project dependencies",
+      "referenceOnly": true,
+      "doNotAutomaticallyReuseInNewReels": true,
+      "files": [
+        "GONDAR_FINAL/public/reel26/photo1.jpg",
+        "GONDAR_FINAL/public/reel26/photo2.jpg",
+        "GONDAR_FINAL/public/reel26/photo3.jpg",
+        "GONDAR_FINAL/public/reel26/date.mp4",
+        "GONDAR_FINAL/public/reel26/beach.mp4",
+        "GONDAR_FINAL/public/reel26/sea.mp4",
+        "GONDAR_FINAL/public/reel26/voice.mp3",
+        "reel_26_settembre/vocal.mp3"
+      ]
+    }
+  ],
+  "tools": {
+    "typing": "C:\\Users\\Francesco\\.codex\\skills\\benvenuti-salento-premium-edit\\scripts\\premium_tools.py",
+    "mix": "C:\\Users\\Francesco\\.codex\\skills\\benvenuti-salento-premium-edit\\scripts\\premium_tools.py",
+    "verify": "C:\\Users\\Francesco\\.codex\\skills\\benvenuti-salento-premium-edit\\scripts\\premium_tools.py",
+    "turntable": "STILE_MASTER/presets/premium-v5/tools/build_jacket.py"
+  },
+  "validationScope": "Base techniques visually verified in V2. Generic extraction typechecked, imported and tested without rendering; a new production still needs its own normal preflight and final QA."
+}

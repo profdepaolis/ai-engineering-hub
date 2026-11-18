@@ -1,0 +1,6 @@
+{
+  "name": "videocodex-v5-mac-verifica", "version": "1.0.0", "private": true,
+  "scripts": {"verifica": "tsc --noEmit && tsx test/api.ts"},
+  "dependencies": {"@remotion/captions":"4.0.534","@remotion/cli":"4.0.534","react":"19.2.3","react-dom":"19.2.3","remotion":"4.0.534","three":"0.186.1"},
+  "devDependencies": {"@types/node":"22.15.3","@types/react":"19.2.7","@types/three":"0.186.0","tsx":"4.20.6","typescript":"5.9.3"}
+}

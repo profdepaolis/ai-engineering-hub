@@ -1,0 +1,18 @@
+KORA POLICORO — NUOVA BOZZA CON DUE COMPONENTI ORIGINALI V5
+
+Crea una copia separata della bozza artistica, aggiungendo intorno agli 8–12 secondi «KORA · POLICORO» con i componenti originali TypingCamera e AnimatedUnderline. La sequenza originale, il logo iniziale con The Art of Being, il fisheye e lo spioncino rimangono quelli della bozza artistica. Il video viene ricodificato; l'audio completo (voce, musica e SFX) viene copiato senza ricodifica. Nessun nuovo effetto audio viene aggiunto: il mixer V5 non è ancora integrato in questo Reel.
+
+REQUISITI
+- Bozza artistica esistente in videocodex-mac/reels/kora/output-kora-artistico/bozza-kora-artistico.mp4.
+- Cartella premium-v5-mac già installata e verificata sul Mac, con le sue dipendenze Node.
+- L'ambiente Python usato per KORA, Pillow e gli strumenti ffmpeg/ffprobe già funzionanti.
+
+COME PROCEDERE
+1. Estrai lo ZIP e metti la cartella kora-v5-originale in PRODUZIONE_VIDEO accanto a videocodex-mac e premium-v5-mac.
+2. Nello stesso Terminale usato finora, incolla e premi Invio:
+
+python3 "$HOME/Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO/kora-v5-originale/crea_kora_v5.py"
+
+3. Lascia il Terminale aperto fino a FATTO. Il computer deve ricodificare tutto il Reel e il rendering può essere lungo.
+4. Il risultato è videocodex-mac/reels/kora/output-kora-v5-originale/bozza-kora-v5-originale.mp4. Le bozze esistenti non vengono sovrascritte; se l'output esiste già lo script si ferma.
+5. Guarda e ascolta il file, in particolare qualità del video ricodificato, titolo, leggibilità sulle foto reali, sottotitoli, sincronizzazione e scena serale. Non è ancora una verifica della pipeline originale V5 completa.

@@ -1,0 +1,12 @@
+VIDEOCODEX — verifica separata dei componenti originali Premium V5 su Mac
+
+Questa cartella è un ambiente tecnico di prova separato. Contiene copie dei sorgenti V5 e V3 e dei due font reperiti nel tuo progetto originale. La configurazione Node e i test sono nuovi, adattati per la verifica. Il file registry.json è conservato come riferimento storico: contiene ancora percorsi Windows e non viene eseguito.
+
+Non modifica videocodex-mac, i Reel o le bozze KORA. Non esegue render, non usa la libreria audio e non installa né configura l'intera Skill originale. Gli asset speciali e la pipeline completa V5 (inclusi il mix e la gestione dei diritti) restano da adattare e verificare separatamente. Il test verifica gli export e alcune funzioni numeriche; non prova la resa visiva, WebGL o il video finale.
+
+1. Scarica ed estrai lo ZIP. Metti la cartella premium-v5-mac dentro Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO.
+2. Apri Terminale e incolla l'intera riga:
+
+python3 "$HOME/Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO/premium-v5-mac/verifica_mac.py"
+
+Al primo avvio scarica da npm le dipendenze solo in questa nuova cartella, quindi esegue la verifica; servono Node, npm e connessione Internet. Aspetta «VERIFICA COMPLETATA». Se appare un errore, copia il messaggio per ricevere assistenza. Un avviso di deprecazione THREE_CJS_DEPRECATED può comparire anche se la verifica è riuscita.

@@ -1,0 +1,13 @@
+Aggiornamento KORA per VIDEOCODEX Mac
+
+Installa una composizione separata per una bozza con logo per 2 secondi all'inizio e 2 alla fine, voce integrale e foto con movimento leggero. Non modifica né rigenera la voce. Non sono previsti SFX o musica.
+
+Utilizza la cartella locale FOTO REEL con un logo KORA, sei immagini il cui nome inizia con 'Immagine ChatGPT', una 'colazione' e un 'aperitivo'. La scelta è automatica per nome, non una verifica del contenuto. Le immagini con ChatGPT nel nome potrebbero essere generate: non presentarle come riprese autentiche senza verifica. Controlla anche diritti e liberatorie.
+
+La correzione della parola extra 'è' nel passaggio 'la luce più morbida' viene applicata solo alle caption della bozza, perché il proprietario ha confermato il parlato. I file originali non vengono modificati. Serve rivedere tutta la sincronizzazione e ascoltare il risultato prima della pubblicazione.
+
+L'installazione aggiunge due file e sostituisce la configurazione Remotion solo se coincide con quella distribuita; crea prima un backup. Non tocca i progetti e non esegue render. Gli aggiornamenti sono stati testati con materiale sintetico su Linux, non sul Mac del cliente.
+
+Per l'installazione seguire le indicazioni della conversazione. Successivamente, dalla directory videocodex-mac:
+  python tools/kora_foto.py --dir reels/kora --photos '/percorso/FOTO REEL'
+fa solo una verifica; aggiungendo --render si crea una bozza MP4 e può richiedere molto tempo. Niente sovrascrittura. Se un render fallisce, output-kora-foto rimane e va conservata/rinominata prima di riprovare.

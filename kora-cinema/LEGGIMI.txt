@@ -1,0 +1,4 @@
+KORA POLICORO — nuova bozza cinematografica
+Il programma conserva le bozze esistenti e utilizza la traccia della versione con effetti, aggiungendo musica di sottofondo. La voce non viene rigenerata ma l'audio viene rimissato e ricodificato. La traccia MUSICA.wav è separata. I clip allegati sono tratti dai file caricati su Drive e autorizzati dall'utente; la Musa è stata dichiarata generata con IA. Nessuna clip audio originale è usata.
+MUSICA: Next to You — Joth, CC0 1.0; fonte https://opengameart.org/content/next-to-you ; copia audio https://github.com/AlienOmen/ufo-cut-assets/tree/main/audio . Licenza CC0: https://creativecommons.org/publicdomain/zero/1.0/ .
+La scelta musicale è una prova: ascoltare e approvare prima di pubblicare. Verificare immagini, scena serale, caption, sincronizzazione, livelli e condizioni ElevenLabs. Per la caratterizzazione coerente della Musa servirà successivamente una scheda separata.

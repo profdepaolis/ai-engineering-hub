@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 2,
+  "levelMethod": "FFmpeg volumedetect RMS and sample peak; not LUFS or true peak",
+  "assets": []
+}

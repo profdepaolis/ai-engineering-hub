@@ -1,0 +1,7 @@
+Correzione specifica per KORA — da usare solo con i file inviati su Drive.
+
+Non genera o modifica l'audio. Crea un backup dei file di progetto prima delle modifiche. I tempi di alcune parole sono stime basate su Whisper: ascolta e verifica la sincronizzazione. Non è stato possibile ascoltare la voce in questa sessione. In particolare controllare se la voce dice "la luce è più morbida" o "la luce più morbida", il nome KORA e i passaggi "acquista un" e "o scriveteci".
+
+Il programma controlla che i file corrispondano alla versione esaminata: se sono stati cambiati, non applica modifiche. La scelta dei sei cambi scena è una proposta di montaggio, non un risultato finale.
+
+Una volta estratto lo ZIP, dalla cartella videocodex-mac avvia tramite il percorso al file applica_correzioni.py aggiungendo reels/kora come argomento. Le istruzioni passo passo sono nella conversazione.
