@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "workspaceRoot": ".",
+  "runtime": {
+    "python": "python3",
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe",
+    "node": "node"
+  },
+  "paths": {
+    "project": "GONDAR_FINAL",
+    "package": "GONDAR_FINAL/package.json",
+    "remotionConfig": "GONDAR_FINAL/remotion.config.ts",
+    "typescriptConfig": "GONDAR_FINAL/tsconfig.json",
+    "premiumApi": "GONDAR_FINAL/src/index.ts",
+    "components": "GONDAR_FINAL/src/components/index.ts",
+    "audioLibrary": "AUDIO_LIBRARY",
+    "audioCatalog": "AUDIO_LIBRARY/audio_catalog.json",
+    "reels": "reels"
+  },
+  "requiredComponents": [
+    "KineticCaption",
+    "TypingTitle",
+    "AnimatedUnderline",
+    "PhotoShutter",
+    "ImpactTitle",
+    "WhipTransition",
+    "GlobeLite",
+    "SearchBar"
+  ],
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  },
+  "defaults": {
+    "embeddedMusic": false,
+    "createMusicTrackOrSilentSlot": false,
+    "fixedBrandText": false,
+    "optionalOnScreenCredits": false,
+    "preserveRequiredThirdPartyAttribution": true,
+    "editorialProvenanceLabels": false,
+    "duplicateLateralDate": false,
+    "soundEventForEveryClipChange": true,
+    "soundEventForEverySignificantTransitionOrAnimation": true,
+    "sharedCompiledCues": true,
+    "recursiveFullAudioLibraryScan": true,
+    "prioritizeOriginalElevenLabsVoiceover": true,
+    "preserveVoiceWordsSpeedAndTiming": true,
+    "progressiveVerifiedMotionImprovements": true,
+    "stems": ["VOICEOVER", "SFX"],
+    "ambienceOnlyIfRelevantAndAuthorized": true,
+    "maintenanceNeverRenders": true,
+    "productionMode": "AUTOMATICA",
+    "presetVersion": "mac-1.0"
+  }
+}

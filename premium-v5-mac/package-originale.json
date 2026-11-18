@@ -1,0 +1,35 @@
+{
+  "name": "benvenuti-in-salento-gondar-2026",
+  "version": "1.0.0",
+  "description": "Reel Parco Autunno 17 ottobre 2026",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/media": "4.0.534",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.534",
+    "@types/react": "19.2.7",
+    "@types/three": "^0.186.0",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio src/v3.tsx --no-open",
+    "export": "remotion render src/v3.tsx GondarV3 GONDAR_FINAL_V3.mp4 --codec=h264 --crf=17 --concurrency=3 --audio-bitrate=320k --pixel-format=yuv420p",
+    "check": "tsc --noEmit",
+    "dev:premium": "remotion studio src/premium.tsx --no-open",
+    "export:premium": "remotion render src/premium.tsx GondarPremium GONDAR_FINAL_PREMIUM.mp4 --codec=h264 --crf=17 --concurrency=3 --audio-bitrate=320k --pixel-format=yuv420p",
+    "dev:v3": "remotion studio src/v3.tsx --no-open",
+    "export:v3": "remotion render src/v3.tsx GondarV3 GONDAR_FINAL_V3.mp4 --codec=h264 --crf=17 --concurrency=3 --audio-bitrate=320k --pixel-format=yuv420p"
+  }
+}

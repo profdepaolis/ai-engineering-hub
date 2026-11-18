@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Premium V5 — Benvenuti in Salento</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #0d1117; color: #e6edf3;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+    padding: 24px 16px 48px;
+  }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: #8b949e; font-size: 14px; margin-bottom: 24px; text-align:center; max-width: 640px; }
+  .layout { display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+
+  /* ---------- PHONE ---------- */
+  .phone {
+    width: 300px; height: 533px; border-radius: 36px; flex-shrink: 0;
+    border: 3px solid #30363d; background: #000; overflow: hidden;
+    position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  }
+  .scene { position:absolute; inset:0; opacity:0; transition: opacity .5s; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 28px 22px; }
+  .scene.active { opacity:1; }
+  .scene-label {
+    position:absolute; top:14px; left:0; right:0; text-align:center;
+    font-size:11px; letter-spacing:2px; color:rgba(255,255,255,.55); text-transform:uppercase;
+  }
+  .scene-bg { position:absolute; inset:0; z-index:-1; }
+
+  /* Scene 1: TypingCamera */
+  .s1 { background: linear-gradient(160deg,#0b3d5c,#062a40); }
+  .typing-text { font-size: 34px; font-weight: 800; line-height: 1.25; min-height: 130px; text-align:center; }
+  .typing-text .caret { display:inline-block; width:3px; height:30px; background:#ffd166; vertical-align:-4px; animation: blink .7s steps(1) infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+  .underline-svg { width: 220px; height: 14px; margin-top: 6px; }
+  .underline-path { stroke:#ffd166; stroke-width:5; fill:none; stroke-linecap:round; stroke-dasharray: 300; stroke-dashoffset: 300; }
+  .scene.active .underline-path { animation: draw 1s ease forwards; animation-delay: 2.2s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .sfx-tag {
+    margin-top: 18px; font-size: 11px; background: rgba(255,209,102,.15); color:#ffd166;
+    border:1px solid rgba(255,209,102,.4); padding: 4px 10px; border-radius: 20px;
+    opacity:0; transform: translateY(6px); transition: all .3s;
+  }
+  .scene.active .sfx-tag { opacity:1; transform:none; }
+
+  /* Scene 2: PhotoMotionShutter */
+  .s2 { background: linear-gradient(160deg,#3b2f5e,#1d1836); }
+  .photo-stack { position:relative; width:230px; height:300px; }
+  .photo {
+    position:absolute; width:150px; height:200px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; font-size:40px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.5); border: 4px solid #fff;
+    opacity:0; transform: translateY(120px) rotate(10deg) scale(.7);
+  }
+  .scene.active .photo { animation: flyin .7s cubic-bezier(.2,1.4,.4,1) forwards; }
+  .photo.p1 { background: linear-gradient(140deg,#f6d365,#fda085); left:0;  top:40px; animation-delay:.2s !important; }
+  .photo.p2 { background: linear-gradient(140deg,#84fab0,#8fd3f4); left:70px; top:10px; animation-delay:.55s !important; }
+  .photo.p3 { background: linear-gradient(140deg,#ff9a9e,#fecfef); left:35px; top:80px; animation-delay:.9s !important; }
+  @keyframes flyin { to { opacity:1; transform: translateY(0) rotate(var(--r,-4deg)) scale(1); } }
+  .photo.p1 { --r:-6deg; } .photo.p2 { --r:5deg; } .photo.p3 { --r:-2deg; }
+
+  /* Scene 3: CinematicReveal */
+  .s3 { background: linear-gradient(160deg,#5e2f2f,#2b1414); }
+  .impact-word {
+    font-size: 52px; font-weight: 900; letter-spacing: 1px; color:#fff;
+    text-shadow: 0 6px 0 rgba(0,0,0,.35);
+    transform: scale(3); opacity:0;
+  }
+  .scene.active .impact-word { animation: impact .55s cubic-bezier(.2,1.6,.4,1) forwards; animation-delay:.3s; }
+  @keyframes impact { to { transform: scale(1); opacity:1; } }
+  .impact-sub { margin-top:10px; font-size:15px; color:#ffd9a0; opacity:0; }
+  .scene.active .impact-sub { animation: fadeup .5s ease forwards; animation-delay:.9s; }
+  @keyframes fadeup { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:none;} }
+
+  /* Scene 4: CinematicGlobe */
+  .s4 { background: radial-gradient(circle at 50% 40%, #0b3d5c, #020d18 70%); }
+  .globe { width:190px; height:190px; border-radius:50%; position:relative;
+    background: radial-gradient(circle at 35% 35%, #3fa7d6, #0b3d5c 60%, #062a40);
+    box-shadow: inset -18px -14px 40px rgba(0,0,0,.6), 0 0 40px rgba(63,167,214,.35);
+    animation: spin 9s linear infinite;
+  }
+  @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+  .globe::after { content:""; position:absolute; inset:-14px; border-radius:50%;
+    border:2px solid rgba(255,209,102,.25); }
+  .route-dot { position:absolute; width:12px; height:12px; border-radius:50%; background:#ffd166;
+    box-shadow: 0 0 12px #ffd166; }
+  .scene.active .route-dot { animation: pulse 1.2s ease-in-out infinite alternate; }
+  @keyframes pulse { from { transform:scale(1);} to { transform:scale(1.5);} }
+  .globe-caption { margin-top: 22px; font-size: 14px; color:#bfe3f5; }
+
+  /* Scene 5: AnimatedSearch */
+  .s5 { background: linear-gradient(160deg,#123524,#081a10); justify-content:flex-start; padding-top:90px; }
+  .searchbar {
+    width: 240px; background:#fff; border-radius: 30px; padding: 12px 18px;
+    display:flex; align-items:center; gap:8px; color:#333; font-size:15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+  .searchbar .icon { font-size:16px; }
+  .search-text { min-height: 20px; }
+  .cursor { display:inline-block; width:2px; height:16px; background:#333; vertical-align:-2px; animation: blink .7s steps(1) infinite; }
+  .search-result { margin-top: 16px; width:240px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    border-radius:12px; padding:12px 14px; font-size:13px; opacity:0; transform:translateY(8px); }
+  .scene.active .search-result { animation: fadeup .5s ease forwards; animation-delay: 2.4s; }
+
+  /* Scene 6: SoundDesignTrack / outro */
+  .s6 { background: linear-gradient(160deg,#0b3d5c,#062a40); }
+  .outro-title { font-size: 30px; font-weight: 800; text-align:center; line-height:1.3; }
+  .outro-title span { color:#ffd166; }
+  .wave { display:flex; gap:4px; align-items:center; margin-top: 26px; height: 50px; }
+  .wave div { width:5px; background:#3fa7d6; border-radius:3px; height: 20%; }
+  .scene.active .wave div { animation: wave 1s ease-in-out infinite alternate; }
+  .wave div:nth-child(odd) { animation-delay:.15s !important; }
+  .wave div:nth-child(3n) { animation-delay:.3s !important; }
+  @keyframes wave { from { height:15%; } to { height:100%; } }
+
+  /* progress */
+  .progress { position:absolute; bottom:0; left:0; height:4px; background:#ffd166; width:0%; z-index:5; }
+
+  /* ---------- SIDE PANELS ---------- */
+  .panel { width: 300px; }
+  .panel h2 { font-size: 16px; margin-bottom: 10px; color:#ffd166; }
+  .panel p { font-size: 13.5px; line-height: 1.55; color:#c9d1d9; margin-bottom: 14px; }
+  .cue-list { list-style:none; }
+  .cue-list li {
+    font-size: 12.5px; padding: 8px 10px; border-radius: 8px; margin-bottom: 6px;
+    background:#161b22; border:1px solid #21262d; color:#8b949e;
+    transition: all .3s;
+  }
+  .cue-list li.on { background:#1f6feb; border-color:#1f6feb; color:#fff; transform: translateX(4px); }
+  .cue-list .frame { color:#ffd166; font-family: monospace; font-size: 11px; }
+  .cue-list li.on .frame { color:#fff; }
+  .controls { margin-top: 18px; display:flex; gap:8px; }
+  .controls button {
+    background:#21262d; color:#e6edf3; border:1px solid #30363d; border-radius:8px;
+    padding: 8px 14px; font-size:13px; cursor:pointer;
+  }
+  .controls button:hover { background:#30363d; }
+  .note { margin-top: 26px; max-width: 700px; font-size: 12.5px; color:#8b949e; text-align:center; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<h1>🎬 Demo Premium V5 — scena per scena</h1>
+<p class="subtitle">Simulazione di un Reel "Benvenuti in Salento" usando i componenti V5. Ogni scena mostra il componente usato e i cue audio sincronizzati (a destra).</p>
+
+<div class="layout">
+  <!-- PHONE -->
+  <div class="phone" id="phone">
+    <div class="scene s1" data-scene="0">
+      <div class="scene-bg"></div>
+      <div class="scene-label">Scena 1 · TypingCamera</div>
+      <div class="typing-text"><span id="typed"></span><span class="caret"></span></div>
+      <svg class="underline-svg" viewBox="0 0 220 14"><path class="underline-path" d="M4 9 Q 110 2 216 8"/></svg>
+      <div class="sfx-tag">🔊 click per lettera (gruppi per frame)</div>
+    </div>
+
+    <div class="scene s2" data-scene="1">
+      <div class="scene-label">Scena 2 · PhotoMotionShutter</div>
+      <div class="photo-stack">
+        <div class="photo p1">🏖️</div>
+        <div class="photo p2">⛪</div>
+        <div class="photo p3">🍷</div>
+      </div>
+      <div class="sfx-tag">🔊 shutter sullo scatto di ogni foto</div>
+    </div>
+
+    <div class="scene s3" data-scene="2">
+      <div class="scene-label">Scena 3 · CinematicImpact</div>
+      <div class="impact-word">SALENTO!</div>
+      <div class="impact-sub">dove il mare incontra la storia</div>
+      <div class="sfx-tag">🔊 bass hit sull'impatto</div>
+    </div>
+
+    <div class="scene s4" data-scene="3">
+      <div class="scene-label">Scena 4 · CinematicGlobe</div>
+      <div class="globe">
+        <div class="route-dot" style="top:38px; left:52px;"></div>
+        <div class="route-dot" style="top:96px; left:120px;"></div>
+        <div class="route-dot" style="top:130px; left:60px;"></div>
+      </div>
+      <div class="globe-caption">✈️ Lecce → Otranto → Gallipoli</div>
+      <div class="sfx-tag">🔊 gear/data sul tragitto</div>
+    </div>
+
+    <div class="scene s5" data-scene="4">
+      <div class="scene-label">Scena 5 · AnimatedSearch</div>
+      <div class="searchbar"><span class="icon">🔍</span><span class="search-text"><span id="searched"></span><span class="cursor"></span></span></div>
+      <div class="search-result">📍 <b>Grotta della Poesia</b><br><span style="color:#8b949e">Nardò · 4,9 ★ · 12 min da Lecce</span></div>
+      <div class="sfx-tag">🔊 tick sulle date · click sul risultato</div>
+    </div>
+
+    <div class="scene s6" data-scene="5">
+      <div class="scene-label">Scena 6 · SoundDesignTrack</div>
+      <div class="outro-title">Pronto a scoprire<br><span>il Salento?</span></div>
+      <div class="wave"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="sfx-tag">🔊 accento sulla CTA · voce protagonista</div>
+    </div>
+
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <!-- SIDE -->
+  <div class="panel">
+    <h2 id="compName">TypingCamera</h2>
+    <p id="compDesc">Il titolo si scrive lettera per lettera, la camera segue il testo e la sottolineatura si disegna sulla parola chiave. Ogni gruppo di lettere che appare nello stesso frame ha il suo click.</p>
+    <h2 style="margin-top:18px;">🎵 Cue audio sincronizzati</h2>
+    <ul class="cue-list" id="cueList">
+      <li data-cue="0"><span class="frame">f.02</span> · click typing — "Guarda…"</li>
+      <li data-cue="1"><span class="frame">f.74</span> · underline sweep</li>
+      <li data-cue="2"><span class="frame">f.95</span> · shutter foto 1</li>
+      <li data-cue="3"><span class="frame">f.112</span> · shutter foto 2</li>
+      <li data-cue="4"><span class="frame">f.129</span> · shutter foto 3</li>
+      <li data-cue="5"><span class="frame">f.150</span> · bass hit "SALENTO!"</li>
+      <li data-cue="6"><span class="frame">f.185</span> · gear/data rotte globo</li>
+      <li data-cue="7"><span class="frame">f.230</span> · tick typing ricerca</li>
+      <li data-cue="8"><span class="frame">f.262</span> · click risultato</li>
+      <li data-cue="9"><span class="frame">f.285</span> · accento CTA finale</li>
+    </ul>
+    <div class="controls">
+      <button id="prevBtn">◀ Scena prec.</button>
+      <button id="nextBtn">Scena succ. ▶</button>
+      <button id="playBtn">⏸ Pausa</button>
+    </div>
+  </div>
+</div>
+
+<p class="note">⚠️ Questa è una <b>simulazione didattica</b> in HTML: mostra il <i>concetto</i> dei componenti V5 (animazione + cue audio sullo stesso clock). Il codice vero è in TypeScript nel progetto Remotion sul vecchio PC (<code>STILE_MASTER/presets/premium-v5/</code>) e produce video MP4 reali 1080×1920.</p>
+
+<script>
+const scenes = [
+  { name:"TypingCamera", desc:"Il titolo si scrive lettera per lettera, la camera segue il testo e la sottolineatura si disegna sulla parola chiave. Ogni gruppo di lettere che appare nello stesso frame ha il suo click.", cues:[0,1], dur:4200 },
+  { name:"PhotoMotionShutter", desc:"Le foto volano dentro con traiettorie diverse, ombra e blur proporzionale alla velocità. Ogni atterraggio ha il suo shutter, calcolato sullo stesso frame dell'animazione.", cues:[2,3,4], dur:4200 },
+  { name:"CinematicImpact", desc:"Entrata cinematografica del titolo principale: maschera + overshoot + bass hit esattamente sul picco dell'impatto. Un solo file 'director' comanda grafica e audio.", cues:[5], dur:3800 },
+  { name:"CinematicGlobe", desc:"Globo 3D con rotte luminose verso le destinazioni. Il suono gear/data segue la progressione sulle rotte, non i tagli di montaggio.", cues:[6], dur:4200 },
+  { name:"AnimatedSearch", desc:"Barra di ricerca animata: typing, cursore accelerato/decelerato, click sul risultato. Nessun risultato inventato: mostra solo ciò che è reale.", cues:[7,8], dur:4600 },
+  { name:"SoundDesignTrack", desc:"Chiusura con accento sulla CTA. La voce resta protagonista: gli SFX sono discreti e mai sopra il parlato. Mix finale a circa −16 LUFS.", cues:[9], dur:3800 },
+];
+
+let idx = 0, playing = true, timer = null, startTime = 0, raf = null;
+const sceneEls = document.querySelectorAll('.scene');
+const cueEls = document.querySelectorAll('#cueList li');
+const progress = document.getElementById('progress');
+
+function typeText(el, text, speed, done) {
+  el.textContent = ""; let i = 0;
+  const iv = setInterval(() => {
+    el.textContent = text.slice(0, ++i);
+    if (i >= text.length) { clearInterval(iv); done && done(); }
+  }, speed);
+  return iv;
+}
+
+function show(n) {
+  idx = (n + scenes.length) % scenes.length;
+  sceneEls.forEach(s => s.classList.toggle('active', +s.dataset.scene === idx));
+  document.getElementById('compName').textContent = scenes[idx].name;
+  document.getElementById('compDesc').textContent = scenes[idx].desc;
+  cueEls.forEach(c => c.classList.toggle('on', scenes[idx].cues.includes(+c.dataset.cue)));
+  if (idx === 0) typeText(document.getElementById('typed'), "Guarda il mare del Salento", 90);
+  if (idx === 4) typeText(document.getElementById('searched'), "Grotta della Poesia", 110);
+  restartTimer();
+}
+
+function restartTimer() {
+  clearTimeout(timer); cancelAnimationFrame(raf);
+  if (!playing) { progress.style.width = '0%'; return; }
+  const dur = scenes[idx].dur; startTime = performance.now();
+  const tick = () => {
+    const p = Math.min(100, (performance.now() - startTime) / dur * 100);
+    progress.style.width = p + '%';
+    if (p < 100 && playing) raf = requestAnimationFrame(tick);
+  };
+  tick();
+  timer = setTimeout(() => show(idx + 1), dur);
+}
+
+document.getElementById('nextBtn').onclick = () => show(idx + 1);
+document.getElementById('prevBtn').onclick = () => show(idx - 1);
+document.getElementById('playBtn').onclick = (e) => {
+  playing = !playing;
+  e.target.textContent = playing ? "⏸ Pausa" : "▶ Play";
+  restartTimer();
+};
+
+show(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+KORA - prova effetti senza musica
+Il programma lavora SOLO sulla bozza output-kora-foto/bozza-kora.mp4 e crea la nuova cartella output-kora-effetti. Non sovrascrive la bozza. Il video è copiato, mentre l'audio è ricodificato, ridotto di 1 dB e limitato insieme agli effetti. La voce originale rimane sul Mac senza modifiche. SFX.wav contiene solo gli effetti.
+Effetto incluso: UISFX soft/swipe.mp3, cartella sounds; licenza CC0 1.0 (vedi LICENSE-AUDIO.txt). Provenienza: libreria sounds del Drive. I 7 inserimenti sono approssimati ai centri delle dissolvenze: la qualità, il volume e la sincronizzazione vanno approvati ascoltando la nuova bozza. Nessuna musica.

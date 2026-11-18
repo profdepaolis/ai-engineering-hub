@@ -1,0 +1,18 @@
+KORA POLICORO — BOZZA ARTISTICA
+
+Questa è una nuova bozza separata: la schermata iniziale contiene il logo e la scritta «The Art of Being»; sul mare c'è una distorsione grandangolare simulata, sulla Musa uno spioncino temporaneo. La scena della Musa riporta «Immagini evocative · aperti 9–17» per non suggerire un'apertura serale. Effetti ricostruiti, non comandi originali V5.
+
+REQUISITI
+- Il progetto videocodex-mac e il pacchetto kora-cinema già installati in PRODUZIONE_VIDEO.
+- La bozza cinema già presente in videocodex-mac/reels/kora/output-kora-cinema/bozza-kora-cinema.mp4.
+- Le foto e il logo presenti nella cartella FOTO REEL, come nel progetto cinema.
+
+COME PROCEDERE
+1. Estrai lo ZIP e metti la cartella kora-artistico dentro PRODUZIONE_VIDEO, accanto a kora-cinema e videocodex-mac.
+2. Apri Terminale, incolla questa riga intera e premi Invio:
+
+python3 "$HOME/Desktop/SKILL FRANCESCO/PRODUZIONE_VIDEO/kora-artistico/crea_artistico.py"
+
+3. Lascia aperto il Terminale fino al messaggio FATTO. Il rendering può richiedere diversi minuti.
+4. Il risultato sarà in videocodex-mac/reels/kora/output-kora-artistico/bozza-kora-artistico.mp4. L'audio della bozza cinema (voce, musica ed effetti) viene copiato senza ricodifica. Le versioni precedenti non vengono sovrascritte.
+5. Guarda e ascolta il risultato prima di pubblicare, verificando logo, titolo, effetti, sincronizzazione, orari e atmosfera della scena serale. Se la cartella output-kora-artistico esiste già lo script si ferma, senza sovrascriverla.

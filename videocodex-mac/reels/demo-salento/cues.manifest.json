@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "durationInFrames": 900,
+  "events": [
+    {"id": "hook-typing", "frame": 6, "component": "TypingTitle", "phase": "typing"},
+    {"id": "hook-underline", "frame": 60, "component": "AnimatedUnderline", "phase": "draw"},
+    {"id": "photo-1", "frame": 165, "component": "PhotoShutter", "phase": "land"},
+    {"id": "photo-2", "frame": 195, "component": "PhotoShutter", "phase": "land"},
+    {"id": "photo-3", "frame": 225, "component": "PhotoShutter", "phase": "land"},
+    {"id": "impact-salento", "frame": 315, "component": "ImpactTitle", "phase": "impact"},
+    {"id": "globe-routes", "frame": 470, "component": "GlobeLite", "phase": "routes"},
+    {"id": "search-typing", "frame": 615, "component": "SearchBar", "phase": "typing"},
+    {"id": "search-result", "frame": 700, "component": "SearchBar", "phase": "result"},
+    {"id": "cta-accent", "frame": 765, "component": "ImpactTitle", "phase": "impact"}
+  ],
+  "additionalComponents": []
+}
